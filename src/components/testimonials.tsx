@@ -50,10 +50,11 @@ function Testimonial({ name, role, text, rating }: Omit<Testimonial, 'id'>) {
 
 function Rating({ rating }: { rating: number }) {
   return (
-    <div className="flex" aria-label={`${rating} out of 5 stars`}>
+    <figure className="flex">
       {Array.from({ length: rating }).map((_, index) => (
         <StarIcon key={index} />
       ))}
-    </div>
+      <figcaption className="sr-only">{rating} out of 5 stars</figcaption>
+    </figure>
   );
 }
