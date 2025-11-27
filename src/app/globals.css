@@ -1,26 +1,240 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --text-gradient: linear-gradient(107deg, #ff9a60 -11.37%, #062630 61.84%);
+  --background-gradient: linear-gradient(90deg, #ffe2d1 0%, #fff5ef 100%);
+
+  --preset-1-font-size-desktop: 62px;
+  --preset-1-font-size-mobile: 38px;
+  --preset-1-font-weight: 700;
+  --preset-1-line-height: 120%;
+  --preset-1-letter-spacing: -2px;
+
+  --preset-2-font-size-desktop: 50px;
+  --preset-2-font-size-mobile: 34px;
+  --preset-2-font-weight: 600;
+  --preset-2-line-height: 130%;
+  --preset-2-letter-spacing: -2px;
+
+  --preset-3-font-size-desktop: 34px;
+  --preset-3-font-size-mobile: 24px;
+  --preset-3-font-weight: 600;
+  --preset-3-line-height-desktop: 130%;
+  --preset-3-line-height-mobile: 110%;
+  --preset-3-letter-spacing: -1px;
+
+  --preset-4-font-size: 24px;
+  --preset-4-font-weight-regular: 400;
+  --preset-4-font-weight-semibold: 600;
+  --preset-4-line-height: 110%;
+  --preset-4-letter-spacing: -1px;
+
+  --preset-5-font-size: 20px;
+  --preset-5-font-weight-regular: 400;
+  --preset-5-font-weight-semibold: 600;
+  --preset-5-line-height: 140%;
+  --preset-5-letter-spacing: -0.5px;
+
+  --preset-6-font-size-desktop: 18px;
+  --preset-6-font-size-mobile: 16px;
+  --preset-6-font-weight: 600;
+  --preset-6-line-height: 130%;
+  --preset-6-letter-spacing: -1px;
+
+  --preset-7-font-size: 14px;
+  --preset-7-font-weight: 400;
+  --preset-7-line-height: 120%;
+  --preset-7-letter-spacing: -1px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --breakpoint-xs: 23.4375rem;
+
+  --color-neutral-900: #062630;
+  --color-neutral-700: #385159;
+  --color-neutral-200: #e6e1df;
+  --color-neutral-100: #faf5f3;
+
+  --color-light-salmon-500: #fea36f;
+  --color-light-salmon-100: #ffe2d1;
+  --color-light-salmon-50: #fff5ef;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .text-preset-1 {
+    font-family: var(--font-family-serif);
+    font-size: var(--preset-1-font-size-mobile);
+    font-weight: var(--preset-1-font-weight);
+    line-height: var(--preset-1-line-height);
+    letter-spacing: var(--preset-1-letter-spacing);
+
+    @media (width >= 48rem) {
+      font-size: var(--preset-1-font-size-desktop);
+    }
+  }
+
+  .text-preset-2 {
+    font-family: var(--font-family-serif);
+    font-size: var(--preset-2-font-size-mobile);
+    font-weight: var(--preset-2-font-weight);
+    line-height: var(--preset-2-line-height);
+    letter-spacing: var(--preset-2-letter-spacing);
+
+    @media (width >= 48rem) {
+      font-size: var(--preset-2-font-size-desktop);
+    }
+  }
+
+  .text-preset-3 {
+    font-family: var(--font-family-serif);
+    font-size: var(--preset-3-font-size-mobile);
+    font-weight: var(--preset-3-font-weight);
+    line-height: var(--preset-3-line-height-mobile);
+    letter-spacing: var(--preset-3-letter-spacing);
+
+    @media (width >= 48rem) {
+      font-size: var(--preset-3-font-size-desktop);
+      line-height: var(--preset-3-line-height-desktop);
+    }
+  }
+
+  .text-preset-4 {
+    font-family: var(--font-family-serif);
+    font-size: var(--preset-4-font-size);
+    font-weight: var(--preset-4-font-weight-semibold);
+    line-height: var(--preset-4-line-height);
+    letter-spacing: var(--preset-4-letter-spacing);
+  }
+
+  .text-preset-4-regular {
+    font-family: var(--font-family-serif);
+    font-size: var(--preset-4-font-size);
+    font-weight: var(--preset-4-font-weight);
+    line-height: var(--preset-4-line-height);
+    letter-spacing: var(--preset-4-letter-spacing);
+  }
+
+  .text-preset-5 {
+    font-family: var(--font-family-sans);
+    font-size: var(--preset-5-font-size);
+    font-weight: var(--preset-5-font-weight-semibold);
+    line-height: var(--preset-5-line-height);
+    letter-spacing: var(--preset-5-letter-spacing);
+  }
+
+  .text-preset-5-regular {
+    font-family: var(--font-family-sans);
+    font-size: var(--preset-5-font-size);
+    font-weight: var(--preset-5-font-weight-regular);
+    line-height: var(--preset-5-line-height);
+    letter-spacing: var(--preset-5-letter-spacing);
+  }
+
+  .text-preset-6 {
+    font-family: var(--font-family-serif);
+    font-size: var(--preset-6-font-size-mobile);
+    font-weight: var(--preset-6-font-weight);
+    line-height: var(--preset-6-line-height);
+    letter-spacing: var(--preset-6-letter-spacing);
+
+    @media (width >= 48rem) {
+      font-size: var(--preset-6-font-size-desktop);
+    }
+  }
+
+  .text-preset-7 {
+    font-family: var(--font-family-serif);
+    font-size: var(--preset-7-font-size);
+    font-weight: var(--preset-7-font-weight);
+    line-height: var(--preset-7-line-height);
+    letter-spacing: var(--preset-7-letter-spacing);
+  }
+
+  .text-gradient {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .bg-pattern-light {
+    background: url(../../public/img/pattern-light-bg.svg),
+      var(--color-neutral-100);
+  }
+
+  .circle-decoration {
+    position: relative;
+    display: inline-block;
+  }
+
+  .circle-decoration::after {
+    content: url(../../public/img/pattern-circle.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-20%, -18%) scale(0.75);
+
+    @media (width >= 48rem) {
+      transform: translate(-12%, 0);
+    }
+  }
+
+  .journey-section {
+    background: url(../../public/img/pattern-light-bg.svg),
+      url(../../public/img/pattern-glow.svg), var(--color-neutral-100);
+    background-position: 0 0, top -50% left 0;
+    background-repeat: repeat, no-repeat;
+  }
+
+  .featured-membership {
+    background: url(../../public/img/pattern-glow.svg), var(--color-neutral-100);
+    background-position: top 0 left 20%, 0 0;
+  }
+
+  .footer {
+    background: url(../../public/img/pattern-dark-bg.svg),
+      var(--color-neutral-900);
+  }
+
+  .step:not(:last-of-type)::after {
+    @media (width >= 80rem) {
+      content: url(../../public/img/pattern-arrow.svg);
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .community::after {
+    content: url(../../public/img/logos-tech.svg);
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+
+    @media (width >= 80rem) {
+      bottom: 2rem;
+      right: 50%;
+      transform: translateX(65%);
+    }
+  }
+
+  .hero-section-wrapper {
+    background: url(../../public/img/pattern-light-bg.svg),
+      var(--color-neutral-100);
+    background-repeat: repeat, no-repeat;
+  }
+
+  #membership-options-section {
+    scroll-margin: 4rem;
+  }
+}
+
+html {
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
 }
